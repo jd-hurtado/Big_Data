@@ -1,4 +1,4 @@
- import happybase
+import happybase
 import pandas as pd
 
 try:
@@ -47,8 +47,10 @@ try:
 
     print("Datos cargados exitosamente")
 
+    
     # === CONSULTAS DE LA ACTIVIDAD ===
 
+    # 	CONSULTAS DE SELECCIÓN, FILTRADO Y RECORRIDO SOBRE LOS DATOS. 
     # 1. Consultas y Análisis de Datos (Se consultan 5 datos de cada actividad)
     print("\n=== Primeras 3 actividades en la base de datos ===")
     count = 0
@@ -76,7 +78,7 @@ try:
             if b'details:reaction_type' in data:
                 print(f"Tipo de reacción: {data[b'details:reaction_type'].decode()}")
 
-    # 4. Filtrar actividades de tipo 'search'
+    # 4. Filtrar actividades de tipo 'search' (Se filtran todas las actividades que hayan buscado algo en las redes)
     print("\n=== Consultas: Filtrar actividades tipo 'search' ===")
     for key, data in table.scan(filter=b"SingleColumnValueFilter('info', 'type', =, 'binary:search')"):
         print(f"Actividad ID: {key.decode()}, Término buscado: {data.get(b'info:search_term', b'').decode()}")
@@ -93,7 +95,7 @@ try:
         if duration > 400:
             print(f"\nID: {key.decode()} | Plataforma: {data[b'info:platform'].decode()} | Duración: {duration}")
 
-    # 7. Conteo de actividades por plataforma en la base de datos
+    # 7. Conteo de actividades por plataforma en la base de datos (YouTube, Instagram, Facebook, Twitter)
     print("\n=== Conteo de actividades por plataforma ===")
     platform_stats = {}
     for key, data in table.scan():
@@ -103,7 +105,7 @@ try:
     for platform, total in platform_stats.items():
         print(f"{platform}: {total} actividades")
 
-    # 8. Promedio de duración por tipo de actividad (Busqueda, Tiempo de visulización, Comentario, Reacción)
+    # 8. Promedio de duración en segundos por tipo de actividad (Busqueda, Tiempo de visulización, Comentario, Reacción)
     print("\n=== Duración promedio por tipo de actividad ===")
     durations = {}
     counts = {}
@@ -118,6 +120,7 @@ try:
         avg = durations[activity_type] / counts[activity_type]
         print(f"{activity_type}: {avg:.2f} segundos")
 
+    # OPERACIONES DE ESCRITURA ACTUALIZACIONES
     # 9. Actualizar un contenido específico de una actividad
     print("\n=== Actualizando contenido de post para la actividad A005 ===")
     table.put(b'A005', {
@@ -125,12 +128,12 @@ try:
     })
     print("Contenido actualizado correctamente.")
 
-    # 10. Actualización
-    print("\n=== Actualización de una actividad existente ===")
+    # 10. Actualización de una reaccion a una actividad
+    print("\n=== Actualización de una reacción a una actividad existente ===")
     table.put(b'activity_002', {b'details:reaction_type': b'love'})
-    print("Actividad actualizada: activity_002")
+    print("Reacción actualizada correctamente: activity_002")
 
-    # 11. Consulta para verificar actualización
+    # 11. Consulta para verificar actualización de la reacción
     print("\n=== Verificar actualización ===")
     updated_row = table.row(b'activity_002')
     print(f"Detalles después de actualización: {updated_row.get(b'details:reaction_type', b'').decode()}")
@@ -139,20 +142,22 @@ try:
     print("\n=== Eliminando tipo de reacción del post en la actividad A009 ===")
     table.delete(b'A009', columns=[b'details:reaction_type'])
     print("Reacción eliminada.")
-
-    # 13. Inserción
+    
+    # OPERACIONES DE ESCRITURA INSERCIONES
+    # 13. Inserción de una nueva actividad a la base de datos
     print("\n=== Inserción de nueva actividad ===")
     new_activity = {
         b'info:user_id': b'new_user_01',
         b'info:platform': b'Instagram',
         b'info:type': b'like',
-        b'info:date': b'2024-11-12T12:00:00',
+        b'info:date': b'2025-10-05T12:00:00',
         b'details:post_id': b'P100',
         b'details:reaction_type': b'like'
     }
     table.put(b'activity_101', new_activity)
     print("Nueva actividad insertada: activity_101")
 
+    # OPERACIONES DE ESCRITURA ELIMINACIÓN
     # 14. Consulta previa a la eliminación
     print("\n=== Consulta previa a eliminación ===")
     row = table.row(b'activity_101')
