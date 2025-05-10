@@ -1,0 +1,101 @@
+activity_id,user_id,platform,type,duration_seconds,search_term,date,details_video_id,details_title,details_post_id,details_content,details_reaction_type
+A001,U015,YouTube,search,0,tech reviews,2024-11-12T10:45:00,,,,,
+A002,U020,Instagram,search,0,latest news,2024-11-12T11:00:00,,,,,
+A003,U014,YouTube,watch_time,464,,2024-11-12T11:15:00,V012,Learn MongoDB,,,
+A004,U008,YouTube,watch_time,355,,2024-11-12T11:30:00,V017,Cooking tutorial,,,
+A005,U017,Facebook,comment,0,,2024-11-12T11:45:00,,,P003,Fantastic video!,
+A006,U002,Facebook,reaction,0,,2024-11-12T12:00:00,,,P010,,angry
+A007,U002,Facebook,reaction,0,,2024-11-12T12:15:00,,,P011,,sad
+A008,U001,YouTube,search,0,tech reviews,2024-11-12T12:30:00,,,,,
+A009,U010,Facebook,reaction,0,,2024-11-12T12:45:00,,,P015,,wow
+A010,U003,Facebook,comment,0,,2024-11-12T13:00:00,,,P002,Great post!,
+A011,U006,Instagram,comment,0,,2024-11-12T13:15:00,,,P018,Loved it!,
+A012,U015,Twitter,comment,0,,2024-11-12T13:30:00,,,P016,Loved it!,
+A013,U003,YouTube,watch_time,574,,2024-11-12T13:45:00,V007,Travel vlog,,,
+A014,U012,Facebook,reaction,0,,2024-11-12T14:00:00,,,P013,,like
+A015,U005,Facebook,reaction,0,,2024-11-12T14:15:00,,,P003,,sad
+A016,U018,Instagram,search,0,best restaurants,2024-11-12T14:30:00,,,,,
+A017,U014,Twitter,search,0,football scores,2024-11-12T14:45:00,,,,,
+A018,U019,YouTube,watch_time,430,,2024-11-12T15:00:00,V009,Cooking tutorial,,,
+A019,U003,YouTube,reaction,0,,2024-11-12T15:15:00,,,P005,,angry
+A020,U019,Twitter,comment,0,,2024-11-12T15:30:00,,,P005,Fantastic video!,
+A021,U007,YouTube,search,0,football scores,2024-11-12T15:45:00,,,,,
+A022,U020,Facebook,search,0,best restaurants,2024-11-12T16:00:00,,,,,
+A023,U014,Facebook,comment,0,,2024-11-12T16:15:00,,,P016,Amazing photo!,
+A024,U002,Facebook,comment,0,,2024-11-12T16:30:00,,,P008,Loved it!,
+A025,U014,YouTube,search,0,learn Java,2024-11-12T16:45:00,,,,,
+A026,U009,Facebook,reaction,0,,2024-11-12T17:00:00,,,P015,,haha
+A027,U020,YouTube,search,0,learn Java,2024-11-12T17:15:00,,,,,
+A028,U003,YouTube,search,0,latest news,2024-11-12T17:30:00,,,,,
+A029,U011,YouTube,watch_time,361,,2024-11-12T17:45:00,V007,React Basics,,,
+A030,U007,Facebook,comment,0,,2024-11-12T18:00:00,,,P019,Amazing photo!,
+A031,U015,Twitter,comment,0,,2024-11-12T18:15:00,,,P004,Loved it!,
+A032,U020,Twitter,watch_time,532,,2024-11-12T18:30:00,V013,React Basics,,,
+A033,U014,Twitter,comment,0,,2024-11-12T18:45:00,,,P004,Interesting read!,
+A034,U017,Facebook,reaction,0,,2024-11-12T19:00:00,,,P011,,angry
+A035,U017,Instagram,watch_time,245,,2024-11-12T19:15:00,V020,Travel vlog,,,
+A036,U007,Twitter,watch_time,574,,2024-11-12T19:30:00,V019,Learn MongoDB,,,
+A037,U015,Facebook,reaction,0,,2024-11-12T19:45:00,,,P013,,like
+A038,U015,YouTube,watch_time,562,,2024-11-12T20:00:00,V006,Top 10 movies,,,
+A039,U018,Facebook,search,0,tech reviews,2024-11-12T20:15:00,,,,,
+A040,U013,Twitter,comment,0,,2024-11-12T20:30:00,,,P020,Amazing photo!,
+A041,U004,Facebook,reaction,0,,2024-11-12T20:45:00,,,P016,,angry
+A042,U016,Twitter,comment,0,,2024-11-12T21:00:00,,,P017,Loved it!,
+A043,U009,Instagram,comment,0,,2024-11-12T21:15:00,,,P001,Amazing photo!,
+A044,U001,YouTube,watch_time,581,,2024-11-12T21:30:00,V011,React Basics,,,
+A045,U006,Instagram,reaction,0,,2024-11-12T21:45:00,,,P001,,love
+A046,U015,YouTube,reaction,0,,2024-11-12T22:00:00,,,P003,,haha
+A047,U018,Twitter,comment,0,,2024-11-12T22:15:00,,,P015,Loved it!,
+A048,U011,Facebook,comment,0,,2024-11-12T22:30:00,,,P017,Great post!,
+A049,U018,Facebook,watch_time,326,,2024-11-12T22:45:00,V008,React Basics,,,
+A050,U011,YouTube,watch_time,539,,2024-11-12T23:00:00,V004,React Basics,,,
+A051,U017,YouTube,watch_time,480,,2024-11-12T23:15:00,V014,Top 10 movies,,,
+A052,U002,Facebook,watch_time,498,,2024-11-12T23:30:00,V007,Cooking tutorial,,,
+A053,U008,Twitter,reaction,0,,2024-11-12T23:45:00,,,P016,,wow
+A054,U010,YouTube,comment,0,,2024-11-13T00:00:00,,,P004,Great post!,
+A055,U007,Facebook,comment,0,,2024-11-13T00:15:00,,,P014,Interesting read!,
+A056,U012,YouTube,comment,0,,2024-11-13T00:30:00,,,P018,Loved it!,
+A057,U008,Twitter,watch_time,228,,2024-11-13T00:45:00,V015,Cooking tutorial,,,
+A058,U011,Facebook,search,0,learn Java,2024-11-13T01:00:00,,,,,
+A059,U003,Twitter,reaction,0,,2024-11-13T01:15:00,,,P007,,like
+A060,U010,Facebook,watch_time,236,,2024-11-13T01:30:00,V009,Cooking tutorial,,,
+A061,U001,Twitter,reaction,0,,2024-11-13T01:45:00,,,P013,,angry
+A062,U020,YouTube,reaction,0,,2024-11-13T02:00:00,,,P007,,sad
+A063,U015,Twitter,search,0,learn Java,2024-11-13T02:15:00,,,,,
+A064,U005,Instagram,search,0,latest news,2024-11-13T02:30:00,,,,,
+A065,U014,YouTube,watch_time,246,,2024-11-13T02:45:00,V004,Top 10 movies,,,
+A066,U020,Twitter,watch_time,349,,2024-11-13T03:00:00,V007,React Basics,,,
+A067,U006,YouTube,search,0,football scores,2024-11-13T03:15:00,,,,,
+A068,U010,Instagram,watch_time,217,,2024-11-13T03:30:00,V002,Top 10 movies,,,
+A069,U013,Facebook,watch_time,245,,2024-11-13T03:45:00,V006,Learn MongoDB,,,
+A070,U006,Twitter,comment,0,,2024-11-13T04:00:00,,,P004,Interesting read!,
+A071,U003,Facebook,reaction,0,,2024-11-13T04:15:00,,,P003,,haha
+A072,U016,Twitter,comment,0,,2024-11-13T04:30:00,,,P008,Fantastic video!,
+A073,U004,Facebook,reaction,0,,2024-11-13T04:45:00,,,P019,,sad
+A074,U006,Instagram,comment,0,,2024-11-13T05:00:00,,,P004,Amazing photo!,
+A075,U002,Instagram,comment,0,,2024-11-13T05:15:00,,,P002,Amazing photo!,
+A076,U005,YouTube,reaction,0,,2024-11-13T05:30:00,,,P004,,sad
+A077,U004,Facebook,search,0,latest news,2024-11-13T05:45:00,,,,,
+A078,U017,Twitter,reaction,0,,2024-11-13T06:00:00,,,P016,,wow
+A079,U006,YouTube,comment,0,,2024-11-13T06:15:00,,,P002,Loved it!,
+A080,U006,Instagram,comment,0,,2024-11-13T06:30:00,,,P015,Great post!,
+A081,U001,Facebook,search,0,football scores,2024-11-13T06:45:00,,,,,
+A082,U002,Twitter,reaction,0,,2024-11-13T07:00:00,,,P007,,angry
+A083,U003,Facebook,comment,0,,2024-11-13T07:15:00,,,P005,Amazing photo!,
+A084,U004,Instagram,search,0,learn Java,2024-11-13T07:30:00,,,,,
+A085,U011,Twitter,search,0,best restaurants,2024-11-13T07:45:00,,,,,
+A086,U005,YouTube,reaction,0,,2024-11-13T08:00:00,,,P010,,angry
+A087,U011,Twitter,search,0,learn Java,2024-11-13T08:15:00,,,,,
+A088,U010,YouTube,reaction,0,,2024-11-13T08:30:00,,,P005,,love
+A089,U014,Instagram,search,0,best restaurants,2024-11-13T08:45:00,,,,,
+A090,U014,Instagram,watch_time,475,,2024-11-13T09:00:00,V015,React Basics,,,
+A091,U010,Facebook,search,0,learn Java,2024-11-13T09:15:00,,,,,
+A092,U008,YouTube,search,0,football scores,2024-11-13T09:30:00,,,,,
+A093,U007,YouTube,watch_time,517,,2024-11-13T09:45:00,V015,Top 10 movies,,,
+A094,U018,Twitter,reaction,0,,2024-11-13T10:00:00,,,P011,,haha
+A095,U001,Instagram,watch_time,288,,2024-11-13T10:15:00,V019,Top 10 movies,,,
+A096,U012,Facebook,search,0,learn Java,2024-11-13T10:30:00,,,,,
+A097,U019,Instagram,reaction,0,,2024-11-13T10:45:00,,,P008,,sad
+A098,U001,Twitter,watch_time,483,,2024-11-13T11:00:00,V014,Top 10 movies,,,
+A099,U010,YouTube,search,0,best restaurants,2024-11-13T11:15:00,,,,,
+A100,U010,Twitter,comment,0,,2024-11-13T11:30:00,,,P003,Great post!,
