@@ -48,13 +48,110 @@ try:
     
     print("Datos cargados exitosamente")
 
+    # 1. Mostrar las primeras 3 actividades registradas
+    print("\n=== Primeras 3 actividades en la base de datos ===")
+    count = 0
+    for key, data in table.scan():
+    if count < 3:
+        print(f"\nActividad ID: {key.decode()}")
+        print(f"Usuario: {data[b'info:user_id'].decode()}")
+        print(f"Plataforma: {data[b'info:platform'].decode()}")
+        print(f"Tipo de actividad: {data[b'info:type'].decode()}")
+        print(f"Fecha: {data[b'info:date'].decode()}")
+        count += 1
+
+    # 2. Actividades de tipo 'reaction'
+    print("\n=== Actividades de tipo 'reaction' ===")
+    for key, data in table.scan():
+    if data[b'info:type'].decode() == 'reaction':
+        print(f"\nID: {key.decode()} | Usuario: {data[b'info:user_id'].decode()} | Plataforma: {data[b'info:platform'].decode()}")
+        if b'post:reaction_type' in data:
+            print(f"Tipo de reacción: {data[b'post:reaction_type'].decode()}")
+
+    # 3. Actividades con duración mayor a 300 segundos
+    print("\n=== Actividades con duración > 300 segundos ===")
+    for key, data in table.scan():
+    duration = int(data.get(b'info:duration_seconds', b'0').decode())
+    if duration > 300:
+        print(f"\nID: {key.decode()} | Plataforma: {data[b'info:platform'].decode()} | Duración: {duration}")
+
+    # 4. Conteo de actividades por plataforma
+    print("\n=== Conteo de actividades por plataforma ===")
+    platform_stats = {}
+    for key, data in table.scan():
+    platform = data[b'info:platform'].decode()
+    platform_stats[platform] = platform_stats.get(platform, 0) + 1
+
+    for platform, total in platform_stats.items():
+    print(f"{platform}: {total} actividades")
+
+    # 5. Promedio de duración por tipo de actividad
+    print("\n=== Duración promedio por tipo de actividad ===")
+    durations = {}
+    counts = {}
+
+    for key, data in table.scan():
+    activity_type = data[b'info:type'].decode()
+    duration = int(data.get(b'info:duration_seconds', b'0').decode())
+    durations[activity_type] = durations.get(activity_type, 0) + duration
+    counts[activity_type] = counts.get(activity_type, 0) + 1
+
+    for activity_type in durations:
+    avg = durations[activity_type] / counts[activity_type]
+    print(f"{activity_type}: {avg:.2f} segundos")
+
+    # 6. Actualizar un contenido de post específico
+    print("\n=== Actualizando contenido de post para la actividad A005 ===")
+    table.put(b'A005', {
+    b'post:content': b'Contenido actualizado: ¡Excelente!',
+    })
+    print("Contenido actualizado correctamente.")
+
+    # 7. Eliminar una reacción de un post
+    print("\n=== Eliminando tipo de reacción del post en actividad A009 ===")
+    table.delete(b'A009', columns=[b'post:reaction_type'])
+    print("Reacción eliminada.")
+
+
+
+
+
+
+
+
+
+
     # 4. Consultas y Análisis de Datos
     print("\n=== Primeras 10 actividades cargadas ===")
     count = 0
     for key, data in table.scan(limit=10):
-        print(f"Actividad ID: {key.decode()}, Tipo: {data[b'activity:type'].decode()}")
+        print(f"Actividad ID: {key.decode()}, Tipo: {data[b'info:type'].decode()}, Plataforma: {data[b'info:platform'].decode()}")
         count += 1
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     # Filtrar actividades de tipo 'search'
     print("\n=== Consultas: Filtrar actividades tipo 'search' ===")
     for key, data in table.scan(filter=b"SingleColumnValueFilter('activity', 'type', =, 'binary:search')"):
