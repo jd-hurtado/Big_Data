@@ -120,6 +120,9 @@ try:
     table.delete(b'A009', columns=[b'details:reaction_type'])
     print("Reacción eliminada.")
 
+
+
+
 except Exception as e:
     print(f"Error al ejecutar el script: {e}")
 
@@ -127,21 +130,6 @@ finally:
     # Cerrar la conexión con HBase
     connection.close()
     print("Conexión cerrada")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
