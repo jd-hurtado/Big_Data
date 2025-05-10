@@ -2,40 +2,44 @@ import happybase
 import pandas as pd
 
 try:
-    # 1. Conectar a HBase
+    # 1. Establecer conexión con HBase
     connection = happybase.Connection('localhost')
     print("Conexión establecida con HBase")
     
-    # 2. Crear la tabla con familias de columnas
-    table_name = 'user_activities'
+    # 2. Crear la tabla con las familias de columnas
+    table_name = 'analisis_redes'
     families = {
-        'activity': dict(),  # Datos principales
-        'details': dict()    # Detalles específicos
+        'info': dict(),      # Información general de la actividad
+        'video': dict(),     # Informacion relacionada a la interaccion con videos
+        'details': dict()    # Detalles específicos de interacciones, publicaciones y demas
     }
     
+    # Eliminar la tabla si ya existe
     if table_name.encode() in connection.tables():
         print(f"Eliminando tabla existente - {table_name}")
         connection.delete_table(table_name, disable=True)
-    
+
+    # Crear nueva tabla
     connection.create_table(table_name, families)
     table = connection.table(table_name)
     print(f"Tabla '{table_name}' creada exitosamente")
 
     # 3. Cargar datos desde un CSV
-    csv_file_path = 'social_activities.csv'
+    csv_file_path = 'Redes_Sociales.csv'
     activity_data = pd.read_csv(csv_file_path)
-    
+
+    # Iterar sobre el DataFrame usando el índice
     for _, row in activity_data.iterrows():
         row_key = row['activity_id'].encode()
         data = {
-            b'activity:user_id': str(row['user_id']).encode(),
-            b'activity:platform': str(row['platform']).encode(),
-            b'activity:type': str(row['type']).encode(),
-            b'activity:date': str(row['date']).encode(),
-            b'activity:duration_seconds': str(row['duration_seconds']).encode(),
-            b'activity:search_term': str(row['search_term']).encode(),
-            b'details:video_id': str(row['details_video_id']).encode(),
-            b'details:title': str(row['details_title']).encode(),
+            b'info:user_id': str(row['user_id']).encode(),
+            b'info:platform': str(row['platform']).encode(),
+            b'info:type': str(row['type']).encode(),
+            b'info:duration_seconds': str(row['duration_seconds']).encode(),
+            b'info:search_term': str(row['search_term']).encode(),
+            b'info:date': str(row['date']).encode(),
+            b'video:video_id': str(row['details_video_id']).encode(),
+            b'video:title': str(row['details_title']).encode(),
             b'details:post_id': str(row['details_post_id']).encode(),
             b'details:content': str(row['details_content']).encode(),
             b'details:reaction_type': str(row['details_reaction_type']).encode()
@@ -44,10 +48,10 @@ try:
     
     print("Datos cargados exitosamente")
 
-    # 4. Consultas
-    print("\n=== Primeras 3 actividades cargadas ===")
+    # 4. Consultas y Análisis de Datos
+    print("\n=== Primeras 10 actividades cargadas ===")
     count = 0
-    for key, data in table.scan(limit=3):
+    for key, data in table.scan(limit=10):
         print(f"Actividad ID: {key.decode()}, Tipo: {data[b'activity:type'].decode()}")
         count += 1
     
