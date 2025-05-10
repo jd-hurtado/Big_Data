@@ -122,48 +122,32 @@ try:
 
 
 
-
-except Exception as e:
-    print(f"Error al ejecutar el script: {e}")
-
-finally:
-    # Cerrar la conexión con HBase
-    connection.close()
-    print("Conexión cerrada")
-
-
-
-
-
-
-
-
-
-
+    # ejercicios de ensayo
+    # Consultas adicionales con filtros y operaciones CRUD
 
     # Filtrar actividades de tipo 'search'
     print("\n=== Consultas: Filtrar actividades tipo 'search' ===")
-    for key, data in table.scan(filter=b"SingleColumnValueFilter('activity', 'type', =, 'binary:search')"):
-        print(f"Actividad ID: {key.decode()}, Término buscado: {data[b'activity:search_term'].decode()}")
-    
+    for key, data in table.scan(filter=b"SingleColumnValueFilter('info', 'type', =, 'binary:search')"):
+        print(f"Actividad ID: {key.decode()}, Término buscado: {data.get(b'info:search_term', b'').decode()}")
+
     # Filtrar actividades realizadas en 'YouTube'
     print("\n=== Consultas: Filtrar actividades en 'YouTube' ===")
-    for key, data in table.scan(filter=b"SingleColumnValueFilter('activity', 'platform', =, 'binary:YouTube')"):
-        print(f"Actividad ID: {key.decode()}, Usuario: {data[b'activity:user_id'].decode()}")
+    for key, data in table.scan(filter=b"SingleColumnValueFilter('info', 'platform', =, 'binary:YouTube')"):
+        print(f"Actividad ID: {key.decode()}, Usuario: {data.get(b'info:user_id', b'').decode()}")
 
     # Filtrar actividades con duración mayor a 300 segundos
     print("\n=== Consultas: Filtrar videos vistos más de 300 segundos ===")
     for key, data in table.scan():
-        if int(data.get(b'activity:duration_seconds', b'0').decode()) > 300:
-            print(f"Actividad ID: {key.decode()}, Duración: {data[b'activity:duration_seconds'].decode()} segundos")
+        if int(data.get(b'info:duration_seconds', b'0').decode()) > 300:
+            print(f"Actividad ID: {key.decode()}, Duración: {data.get(b'info:duration_seconds').decode()} segundos")
 
     # 5. Inserción
     print("\n=== Inserción de nueva actividad ===")
     new_activity = {
-        b'activity:user_id': b'new_user_01',
-        b'activity:platform': b'Instagram',
-        b'activity:type': b'like',
-        b'activity:date': b'2024-11-12T12:00:00',
+        b'info:user_id': b'new_user_01',
+        b'info:platform': b'Instagram',
+        b'info:type': b'like',
+        b'info:date': b'2024-11-12T12:00:00',
         b'details:post_id': b'P100',
         b'details:reaction_type': b'like'
     }
@@ -199,6 +183,11 @@ finally:
     print(f"Detalles después de actualización: {updated_row.get(b'details:reaction_type', b'').decode()}")
 
 except Exception as e:
-    print(f"Error: {e}")
+    print(f"Error al ejecutar el script: {e}")
+
+finally:
+    # Cerrar la conexión con HBase
+    connection.close()
+    print("Conexión cerrada")
 
 
